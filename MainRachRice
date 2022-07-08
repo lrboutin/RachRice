@@ -1,0 +1,57 @@
+#ENCH 505 - root finding RR equation 
+
+KH2 = 12336.54083 
+
+zH2 = 0.340022442 
+
+     
+
+KCO = 12336.54083 
+
+zCO = 0.437171711 
+
+     
+
+KCO2 = 12336.54083 
+
+zCO2 = 0.097149269 
+
+     
+
+KAqNH3 = 0.038490007 
+
+zAqNH3 = 0.058137836 
+
+     
+
+KCH4 = 5.551443375 
+
+zCH4 = 0.029144781 
+
+     
+
+KN2 = 12336.54083 
+
+zN2 = 0.038373961 
+
+ 
+
+def f(x):     
+
+#RR term: [((K-1)z)/(1+(K-1)x)] 
+
+ 
+
+    return (((KH2-1)*zH2)/(1+(KH2-1)*x)) + (((KCO-1)*zCO)/(1+(KCO-1)*x)) + (((KCO2-1)*zCO2)/(1+(KCO2-1)*x)) + (((KAqNH3-1)*zAqNH3)/(1+(KAqNH3-1)*x)) + (((KCH4-1)*zCH4)/(1+(KCH4-1)*x)) + (((KN2-1)*zN2)/(1+(KN2-1)*x)) 
+
+ 
+
+from scipy import optimize 
+
+ 
+
+VbyF = optimize.bisect(f, 0, 1) 
+
+ 
+
+print(VbyF)
